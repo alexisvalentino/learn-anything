@@ -1,7 +1,13 @@
-import { defineConfig } from "@tanstack/start/config"
-import tsConfigPaths from "vite-tsconfig-paths"
+import { defineConfig } from "@tanstack/start/config";
+import tsConfigPaths from "vite-tsconfig-paths";
 
-const is_tauri = process.env.TAURI_ENV_TARGET_TRIPLE !== undefined
+const is_tauri = process.env.TAURI_ENV_TARGET_TRIPLE !== undefined;
+
+console.log("Environment Variables:", {
+  TAURI_ENV_TARGET_TRIPLE: process.env.TAURI_ENV_TARGET_TRIPLE,
+  VITE_JAZZ_PEER_URL: process.env.VITE_JAZZ_PEER_URL,
+  // Add other environment variables as needed
+});
 
 const config = is_tauri
   ? defineConfig({
@@ -33,6 +39,6 @@ const config = is_tauri
           }),
         ],
       },
-    })
+    });
 
-export default config
+export default config;
